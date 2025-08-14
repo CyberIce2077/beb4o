@@ -6,7 +6,7 @@ ingress:
     service: http://localhost:8080
 
   - hostname: vault.beb4o.com
-    service: http://filebrowser:80
+    service: http://vault:80
 
   - hostname: forgeui.beb4o.com
     service: http://localhost:8080
