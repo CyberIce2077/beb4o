@@ -1,0 +1,25 @@
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    command: tunnel --config /cloudflared/config.yml run
+    volumes:
+      - ./cloudflared:/cloudflared
+    restart: unless-stopped
+    networks:
+      - app
+
+  vault:
+    image: filebrowser/filebrowser:latest
+    user: "${UID:-1000}:${GID:-1000}"
+    volumes:
+      - /mnt/vault:/srv
+      - ./filebrowser/config:/config
+      - ./filebrowser/database.db:/database.db
+    expose:
+      - "80"
+    restart: unless-stopped
+    networks:
+      - app
+
+networks:
+  app:

@@ -1,0 +1,14 @@
+tunnel: bb4b7aca-05b4-4058-a3e8-83f5dcccf075
+credentials-file: /cloudflared/credentials.json
+
+ingress:
+  - hostname: beb4o.com
+    service: http://localhost:8080
+
+  - hostname: vault.beb4o.com
+    service: http://filebrowser:80
+
+  - hostname: forgeui.beb4o.com
+    service: http://localhost:8080
+
+  - service: http_status:404
