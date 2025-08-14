@@ -4,7 +4,7 @@ services:
     command: tunnel --config /cloudflared/config.yml run
     volumes:
       - ./cloudflared:/cloudflared
-    restart: unless-stopped
+    # restart: unless-stopped
     networks:
       - app
 
@@ -13,11 +13,11 @@ services:
     user: "${UID:-1000}:${GID:-1000}"
     volumes:
       - /mnt/vault:/srv
-      - ./filebrowser/config:/config
-      - ./filebrowser/database.db:/database.db
+      - /mnt/vault/config:/config
+      - /mnt/vault/database.db:/database.db
     expose:
       - "80"
-    restart: unless-stopped
+    # restart: unless-stopped
     networks:
       - app
 
