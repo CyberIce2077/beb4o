@@ -15,8 +15,6 @@ services:
       - /mnt/vault:/srv
       - /mnt/vault/config:/config
       - /mnt/vault/database.db:/database.db
-    expose:
-      - "80"
     restart: unless-stopped
     networks:
       - app
