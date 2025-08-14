@@ -13,8 +13,6 @@ services:
     user: "${UID:-1000}:${GID:-1000}"
     volumes:
       - /mnt/vault:/srv
-      - ./filebrowser/config:/config
-      - ./filebrowser/database.db:/database.db
     restart: unless-stopped
     networks:
       - app
