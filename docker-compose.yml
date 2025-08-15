@@ -8,14 +8,15 @@ services:
     networks:
       - app
 
-  vault:
-    image: filebrowser/filebrowser:latest
-    user: "${UID:-1000}:${GID:-1000}"
-    volumes:
-      - /mnt/vault:/srv
-    restart: unless-stopped
-    networks:
-      - app
+  # NOTE: docker compose up will remove the user credentials
+  # vault:
+  #   image: filebrowser/filebrowser:latest
+  #   user: "${UID:-1000}:${GID:-1000}"
+  #   volumes:
+  #     - /mnt/vault:/srv
+  #   restart: unless-stopped
+  #   networks:
+  #     - app
 
 networks:
   app:
